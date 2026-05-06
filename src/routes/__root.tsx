@@ -1,8 +1,6 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { Outlet, Link, createRootRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-
-import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
   return (
@@ -38,36 +36,17 @@ export const Route = createRootRoute({
           "A humanitarian bridge between Europe and Nigeria, supporting vulnerable children, the elderly, and empowering women and youth.",
       },
       { property: "og:title", content: "Eagle's Wings Empowerment" },
-      { property: "og:description", content: "Restoring dignity and opportunity to those who need it most." },
+      {
+        property: "og:description",
+        content: "Restoring dignity and opportunity to those who need it most.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap",
-      },
-    ],
   }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   return (
